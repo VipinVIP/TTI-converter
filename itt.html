@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.18.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./math.js"></script>
+    <link rel="stylesheet" href="./styles.css"/>
+   
+    <title></title>
+  </head>
+  <body>
+    <div class="flex flex-col w-full lg:flex-row p-10">
+        <div class="grid  grid-rows-4 flex-grow h-screen card bg-base-300 rounded-box place-items-center" id="imgdiv">
+            <label for="inp" class="custom-file-upload">Upload Image</label>
+            <input  class=""type="file" id="inp">
+            <canvas  class="row-span-3" id="canvas"></canvas>
+        </div>
+        <div class="divider lg:divider-horizontal"><nbsp></nbsp></div> 
+        <div class="grid grid-rows-2 flex-grow h-5/6 card bg-base-300 rounded-box align-items-start justify-items-center shrink-0">
+            <textarea class="textarea textarea-bordered h-80 m-10 w-5/6" placeholder="Enter your text here" id="txtarea"></textarea>
+            <button class="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-md">Copy</button>
+        </div> 
+        
+        
+      </div>
+      <script src="./logic2.js"></script>
+  </body>
+</html>
