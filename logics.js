@@ -23,16 +23,6 @@ function convertCanvasToImage() {
 
 function pad(num, size){ return ('000000000' + num).slice(-size); }
 
-function fromHex(hex) {
-  try {
-    str = decodeURIComponent(hex.replace(/(..)/g, "%$1"));
-  } catch (e) {
-    str = hex;
-    console.log("invalid hex input: " + hex);
-  }
-  return str;
-}
-
 function handleClick(){
 
 userText=document.getElementById('txtarea').value;
@@ -54,24 +44,33 @@ arrlen=B.length;
 sqr= Math.pow(Math.ceil(Math.sqrt(arrlen)), 2);
 diff = sqr - arrlen
 
-diff-=1
+if(diff>0){
+  diff-=1
+}
+
 firstColour="#"+n+pad(diff,5)
 
 B.unshift(firstColour)
 
+///////////////////// edth eythieth
+arrlen=B.length;
+sqr= Math.pow(Math.ceil(Math.sqrt(arrlen)), 2);
+diff = sqr - arrlen
 
+////////////////////////
 
 for(var i=0;i<diff;i++){
   B.push("#ffffff")
 }
+
+firstColour="#"+n+pad(diff,5)
+B.shift()
+B.unshift(firstColour)
+
 A=[]
 A=math.reshape(B,[Math.sqrt(B.length),Math.sqrt(B.length)]);
 ///////////////////////////////////////////////////////////////////
 
-
-
-
-// document.getElementById("m1").innerText = B;
 var canvas = document.getElementById("cv"),
   ctx = canvas.getContext("2d"),
   width = A[0].length,
@@ -88,21 +87,8 @@ for (var row = 0; row < height; row++) {
   }
 }
 
-let pnGImage = convertCanvasToImage();
-document.getElementById("imgdiv").appendChild(pnGImage);
-
+  anchor=document.getElementById("downloader");
+  anchor.href = canvas.toDataURL("image/png");
+  anchor.download = "secret.png"
 }
 
-//////////////////////////////////////////////
-
-var canvas = document.getElementById("viewport"),
-  context = canvas.getContext("2d");
-
-make_base();
-
-function make_base() {
-  base_image = pnGImage;
-  base_image.onload = function () {
-    context.drawImage(base_image, 0, 0);
-  };
-}

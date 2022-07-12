@@ -26,25 +26,10 @@ function draw() {
   canvas.height = this.height;
   var ctx = canvas.getContext('2d'); 
   ctx.drawImage(this, 0,0);
-  // console.log(ctx.getImageData(50,0,50,50).data);
+ 
   width=canvas.width;
   console.log(width);
-  // for(i=0;i<width;i+=50){
-  //   r=ctx.getImageData(i,0,50,50).data[0]
-  //   g=ctx.getImageData(i,0,50,50).data[1]
-  //   b=ctx.getImageData(i,0,50,50).data[2]
-  //   a=ctx.getImageData(i,0,50,50).data[3]
-    
-  //   templ=rgbToHex(r,g,b)
-  //   // console.log(templ)
-  //   arr.push(templ)
-  //   mainarr = arr.map(i=>i.slice(1))
-  //   hexstr=mainarr.join("")
-  //   vips=fromHex(hexstr);
 
-  //   document.getElementById('txtarea').value = vips
-  // }
-//////////////////////////////////////////////////////////////////////////////
 for(j=0;j<width;j+=50) {
 for(i=0;i<width;i+=50){
     r=ctx.getImageData(i,j,50,50).data[0]
@@ -75,7 +60,9 @@ else if(Begin ==4){
   hexstr=hexstr.slice(0,-2)
 }
   vips=fromHex(hexstr);
-  document.getElementById('txtarea').value = vips
+  final=decodeURIComponent(vips)
+  document.getElementById('txtarea').value = final
+
 //////////////////////////////////////////////////////////////////////////////////
   
   console.log(vips)
