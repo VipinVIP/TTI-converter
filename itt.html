@@ -4,20 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@2.18.1/dist/full.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./math.js"></script>
-    <link rel="stylesheet" href="./styles.css"/>
+    <link rel="stylesheet" href="./styles/daisy.css" type="text/css">
+    <script src="./logics/tailwind.js"></script>
+    <script src="./logics/math.js"></script>
+    <link rel="stylesheet" href="./styles/styles.css"/>
    
     <title></title>
   </head>
   <body>
-    <div class="flex flex-col w-full lg:flex-row p-10">
+    <div class="navbar bg-base-300 rounded">
+      <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl">Image To Text Converter</a>
+      </div>
+      <div class="flex-none">
+        <a class="btn btn-ghost" href="index.html">
+          Go to TTI
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col w-full lg:flex-row py-10">
         <div class="grid  grid-rows-4 flex-grow h-screen card bg-base-300 rounded-box place-items-center" id="imgdiv">
             <label for="inp" class="custom-file-upload">Upload Image</label>
             <input  class=""type="file" id="inp">
@@ -31,6 +36,6 @@
         
         
       </div>
-      <script src="./logic2.js"></script>
+      <script src="./logics/logic2.js"></script>
   </body>
 </html>

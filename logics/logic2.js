@@ -1,17 +1,17 @@
-var arr=[],mainarr=[],hexstr=""
+const decoder = new TextDecoder();
 
 function rgbToHex(r, g, b) {
   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
 function fromHex(hex) {
-    try {
-      str = decodeURIComponent(hex.replace(/(..)/g, "%$1"));
-    } catch (e) {
-      str = hex;
-      console.log("invalid hex input: " + hex);
-    }
-    return str;
+  try {
+    str = decoder.decode(Uint8Array.from(hex.match(/(.{1,2})/g).map(function(v){return parseInt(v,16)})))
+  } catch (e) {
+    str = hex;
+    console.log("invalid hex input: " + hex);
+  }
+  return str;
   }
 
 document.getElementById('inp').onchange = function(e) {
@@ -21,6 +21,9 @@ document.getElementById('inp').onchange = function(e) {
   img.src = URL.createObjectURL(this.files[0]);
 };
 function draw() {
+
+  let arr=[],mainarr=[],hexstr=""
+  
   var canvas = document.getElementById('canvas');
   canvas.width = this.width;
   canvas.height = this.height;
@@ -60,7 +63,7 @@ else if(Begin ==4){
   hexstr=hexstr.slice(0,-2)
 }
   vips=fromHex(hexstr);
-  final=decodeURIComponent(vips)
+  final=unescape(vips)
   document.getElementById('txtarea').value = final
 
 //////////////////////////////////////////////////////////////////////////////////

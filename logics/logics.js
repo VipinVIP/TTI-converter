@@ -1,17 +1,16 @@
+const encoder = new TextEncoder()
 
 function toHex(str) {
   try {
-    hex = decodeURI(encodeURIComponent(str))
-      .split("")
-      .map(function (v) {
-        return v.charCodeAt(0).toString(16);
-      })
-      .join("");
-  } catch (e) {
-    hex = str;
-    console.log("invalid text input: " + str);
-  }
-  return hex;
+    hex=Array.from(encoder.encode(str)).map(function(v){
+      return v.toString(16)
+    })
+    .join("");
+} catch (e) {
+  hex = str;
+  console.log("invalid text input: " + str);
+}
+return hex;
 }
 
 function convertCanvasToImage() {
@@ -29,7 +28,7 @@ userText=document.getElementById('txtarea').value;
 
 console.log(userText);
 
-m1 = toHex(userText)
+m1 = toHex(escape(userText))
 
 n=m1.length%6;
 if(n==2){m1+="ffff"}
