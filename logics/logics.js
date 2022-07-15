@@ -1,5 +1,9 @@
 const encoder = new TextEncoder()
 
+function init() {
+  document.getElementById("txtarea").value = "";
+}
+
 function toHex(str) {
   try {
     hex=Array.from(encoder.encode(str)).map(function(v){

@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/daisy.css" type="text/css">
+    <link rel="stylesheet" href="./styles/daisy.css" type="text/css" />
     <script src="./logics/tailwind.js"></script>
     <script src="./logics/math.js"></script>
-    <link rel="stylesheet" href="./styles/styles.css"/>
-
-   
-    <title></title>
+    <script src="./logics/logics.js" defer></script>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>Text To Image Converter</title>
   </head>
   <body>
     <div class="navbar bg-base-300 rounded">
@@ -18,25 +17,46 @@
         <a class="btn btn-ghost normal-case text-xl">Text To Image Converter</a>
       </div>
       <div class="flex-none">
-        <a class="btn btn-ghost" href="itt.html">
-          Go to ITT
-        </a>
+        <a class="btn btn-outline btn-primary" href="itt.html"> Go to ITT </a>
       </div>
     </div>
     <!--  -->
     <div class="flex flex-col w-full lg:flex-row py-10">
-        <div class="grid grid-rows-2 flex-grow h-5/6 card bg-base-300 rounded-box align-items-start justify-items-center shrink-0">
-            <textarea class="textarea textarea-bordered h-80 m-10 w-5/6" placeholder="Enter your text here" id="txtarea"></textarea>
-            <div>
-            <button class="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" onclick="handleClick()">Convert</button>
-            <a class="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" id="downloader">Download Image</a>
-          </div>
-        </div> 
-        <div class="divider lg:divider-horizontal"><nbsp></nbsp></div> 
-        <div class="grid flex-grow max-h-screen card bg-base-300 rounded-box py-10 place-items-center" id="imgdiv">
-            <canvas id="cv"></canvas>
+      <div
+        class="grid grid-rows-2 flex-grow h-5/6 card bg-base-300 rounded-box align-items-start justify-items-center shrink-0"
+      >
+        <textarea
+          class="textarea textarea-bordered h-80 m-10 w-5/6"
+          placeholder="Enter your text here"
+          id="txtarea"
+        ></textarea>
+        <div>
+          <button
+            class="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+            onclick="handleClick()"
+          >
+            Convert
+          </button>
+          <a
+            class="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+            id="downloader"
+            >Download Image</a
+          >
+          <button
+            class="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg"
+            onclick="init()"
+          >
+            Clear
+          </button>
         </div>
       </div>
-      <script src="./logics.js"></script>
+      <div class="divider lg:divider-horizontal"><nbsp></nbsp></div>
+      <div
+        class="grid flex-grow max-h-screen card bg-base-300 rounded-box py-10 place-items-center"
+        id="imgdiv"
+      >
+        <canvas id="cv"></canvas>
+      </div>
+    </div>
   </body>
 </html>
