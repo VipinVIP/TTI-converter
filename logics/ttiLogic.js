@@ -44,21 +44,23 @@ B = n1.map((i) => "#" + i);
 ///////////////////////////////////////////////////////////////////////
 
 arrlen=B.length;
+arrlen+=1
+
 sqr= Math.pow(Math.ceil(Math.sqrt(arrlen)), 2);
 diff = sqr - arrlen
 
-if(diff>0){
-  diff-=1
-}
+// if(diff>0){
+//   diff-=1
+// }
 
-firstColour="#"+n+pad(diff,5)
+// firstColour="#"+n+pad(diff,5)
 
-B.unshift(firstColour)
+// B.unshift(firstColour)
 
 ///////////////////// edth eythieth
-arrlen=B.length;
-sqr= Math.pow(Math.ceil(Math.sqrt(arrlen)), 2);
-diff = sqr - arrlen
+// arrlen=B.length;
+// sqr= Math.pow(Math.ceil(Math.sqrt(arrlen)), 2);
+// diff = sqr - arrlen
 
 ////////////////////////
 
@@ -67,7 +69,7 @@ for(var i=0;i<diff;i++){
 }
 
 firstColour="#"+n+pad(diff,5)
-B.shift()
+// B.shift()
 B.unshift(firstColour)
 
 A=[]
